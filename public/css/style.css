@@ -1,0 +1,49 @@
+.navbar ul {
+    margin:0 auto;
+	font-size: 1.7em;
+}
+
+.navbar a{
+	color: black;
+}
+
+.navbar a:hover{
+    color: #7d7d7d;
+	text-decoration: underline 1px;
+	transition: color 0.5s;
+}
+
+.active{
+	color: #7d7d7d !important;
+}
+
+.col-md{
+	text-align: center;
+}
+
+.fit-image{
+width: 100%;
+object-fit: cover;
+height: 300px; /* only if you want fixed height */
+}
+
+footer{
+	text-align: center;
+	margin-top:3%;
+}
+
+.footer a:hover{
+	color: #7d7d7d;
+	text-decoration: underline 1px;
+	transition: color 0.5s;
+}
+
+.footer a{
+	color: black;
+}
+
+.title-row{
+	text-decoration: underline;
+	font-weight: bold;
+	font-size: larger;
+}
