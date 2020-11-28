@@ -6,3 +6,15 @@ exports.getHome = (req, res, next) => {
         title: 'Home',
     });
 };
+
+exports.getAboutus = (req, res, next) => {
+    res.render('Aboutus.ejs',{
+        title: 'About us',
+    });
+};
+
+exports.getStudyInChina = (req, res, next) => {
+    res.render('StudyInChina.ejs',{
+        title: 'Study in China',
+    });
+};

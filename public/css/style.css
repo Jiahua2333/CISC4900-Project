@@ -13,6 +13,10 @@
 	transition: color 0.5s;
 }
 
+.dropdown:hover .dropdown-menu {
+	display: block;
+ }
+
 .active{
 	color: #7d7d7d !important;
 }
@@ -46,4 +50,12 @@ footer{
 	text-decoration: underline;
 	font-weight: bold;
 	font-size: larger;
+}
+
+.col-md{
+	text-align: left;
+}
+
+img{
+	margin-bottom: 2%;
 }
