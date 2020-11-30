@@ -1,8 +1,8 @@
+
 .navbar ul {
     margin:0 auto;
-	font-size: 1.7em;
+	font-size: 1.4em;
 }
-
 .navbar a{
 	color: black;
 }
@@ -59,3 +59,19 @@ footer{
 img{
 	margin-bottom: 2%;
 }
+/* about us page css */
+.pageTitle{
+	background-color: #cccac9;  
+
+  }
+  /* .pageTitle img{
+	  width: 90%;
+	  height:100%;
+	  padding: 100px 0;
+  } */
+.pageInfor{
+	padding:10% 0;
+  }
+  .pageImg{
+	padding:5% 0;
+  }
