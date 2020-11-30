@@ -32,10 +32,12 @@ height: 300px; /* only if you want fixed height */
 }
 
 footer{
-	text-align: center;
+	text-align: left;
 	margin-top:3%;
 }
-
+.copyright{
+	text-align: center;
+}
 .footer a:hover{
 	color: #7d7d7d;
 	text-decoration: underline 1px;
