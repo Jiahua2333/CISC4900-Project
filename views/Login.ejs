@@ -1,0 +1,23 @@
+<%- include('./includes/header.ejs')%>
+<div class="container p-5">
+    <form class="login-form" action="/login" method="post">
+        <%- include('./includes/error-message.ejs') %>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">Please Enter your email</small>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp">
+            <small id="passwordHelp" class="form-text text-muted">Please Enter your password</small>
+        </div>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+<%- include('./includes/footer.ejs')%>
