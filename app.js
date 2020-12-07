@@ -5,6 +5,8 @@ const routes = require('./routes/routes')
 const authRoutes = require('./routes/auth');
 const sequelize = require('./util/database');
 const session = require('express-session');
+const User = require("./models/user");
+const Comments = require("./models/comments");
 const csrf = require('csurf');
 const flash = require('express-flash-messages')
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -44,11 +46,13 @@ app.use((req, res, next) => {
 app.use(routes);
 app.use(authRoutes);
 
-
+Comments.belongsTo(User, {constraints: true, onDelete: 'CASCADE'});
+User.hasMany(Comments);
 
 sequelize
     .sync()
-    //.sync({force: true})
+    //Use sync({force: true}) to create the empty tables
+    //.sync({force: true}) 
     .then((result) => {
         //console.log(result);
         app.listen(3000);

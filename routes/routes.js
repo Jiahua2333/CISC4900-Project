@@ -25,5 +25,12 @@ router.get('/infocenter/chinainfo', controller.getChinaInfo);
 router.get('/contactus', controller.getContactus);
 router.get('/contactus/facebook', controller.getFacebook);
 
+router.post('/comments', controller.postComments);
+router.get('/comments', controller.getComments);
+
+router.post('/profile', controller.postProfile);
+router.get('/profile/edit', controller.getEditProfile);
+router.get('/profile', controller.getProfile);
+
 
 module.exports = router;

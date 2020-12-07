@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Comments = require("../models/comments");
 const bcrypt = require('bcrypt');
 
 exports.getLogin = (req, res, next) => {
@@ -26,13 +27,14 @@ exports.postLogin = (req, res, next) => {
             bcrypt
 				.compare(password, user.password)
 				.then((doMatch) => {
-                    console.log(password, user.password, doMatch)
+                    //console.log(password, user.password, doMatch)
                     //bcrypt.hash(password, 12).then(result => console.log(result));
 					if (doMatch) {
 						req.session.isLoggedIn = true;
-						req.session.user = user;
+                        req.session.user = user;
+                        console.log(req.session.user);
 						return req.session.save((err) => {
-							console.log(err);
+							//console.log(err);
 							return res.redirect('/');
 						});
 					}
@@ -77,7 +79,13 @@ exports.postSignup = (req, res, next) => {
                     password: hashedPassword,
                 })
                 .then((result) => {
-                    return res.redirect('/');
+                    req.session.isLoggedIn = true;
+                    req.session.user = result;
+                    //console.log(req.session.user);
+                    return req.session.save((err) => {
+                        //console.log(err);
+                        return res.redirect('/');
+                    });
                 })
                 .catch(err => console.log(err));
             }).catch(err => console.log(err));
@@ -85,3 +93,9 @@ exports.postSignup = (req, res, next) => {
         .catch(err => console.log(err));
 };
 
+exports.postLogout = (req, res, next) => {
+	req.session.destroy((err) => {
+		console.log(err);
+		res.redirect('/');
+	});
+};

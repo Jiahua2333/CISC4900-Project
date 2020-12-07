@@ -8,7 +8,8 @@
     <!-- css -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -31,7 +32,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div>
-                <a class="navbar-brand" href="/aboutus">
+                <a class="navbar-brand" href="/">
                     <img src="/images/logo.jpg" alt="logo">
                 </a>
             </div>
@@ -87,16 +88,28 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/contactus">Contact Info</a>
-                            <a class="dropdown-item" href="https://www.facebook.com/profile.php?id=100001525701996&sk=info">Visit Us On Facebook</a>
+                            <a class="dropdown-item"
+                            href="https://www.facebook.com/profile.php?id=100001525701996&sk=info">Visit Us On
+                            Facebook</a>
+                            <% if(isAuthenicated){ %>
+                                <a class="dropdown-item" href="/comments">Comments</a>
+                            <% } %>
                         </div>
                     </li>
                 </ul>
             </div>
             <div>
-                <a href="/login" class="btn btn-primary btn-lg btn-sm active" role="button"
-                    aria-pressed="true">Login</a>
-                <a href="/signup" class="btn btn-primary btn-lg btn-sm active" role="button"
-                    aria-pressed="true">Signup</a>
+                <% if(!isAuthenicated){ %>
+                <a href="/login" class="btn btn-outline-success">Login</a>
+                <a href="/signup" class="btn btn-outline-primary ml-2">Signup</a>
+
+                <% } else { %>
+                <form action="/logout" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                    <a href="/profile" class="btn btn-outline-primary ml-2">Profile</a>
+                    <button class="btn btn-danger ml-2" type="submit">Logout</button>
+                </form>
+                <% } %>
             </div>
         </nav>
         <div class="text-center text-black ">
@@ -104,7 +117,7 @@
 
         </div>
         <div class="text-center text-black">
-           <i><b>Enjoy</b> Beautiful Scenery & Renowned Sites</i>
+            <i><b>Enjoy</b> Beautiful Scenery & Renowned Sites</i>
         </div>
     </hearder>
     <!--NAV BAR ENDS-->
