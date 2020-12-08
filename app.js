@@ -49,14 +49,18 @@ app.use(authRoutes);
 Comments.belongsTo(User, {constraints: true, onDelete: 'CASCADE'});
 User.hasMany(Comments);
 
+let PORT = process.env.PORT || 3000;
+
 sequelize
     .sync()
     //Use sync({force: true}) to create the empty tables
     //.sync({force: true}) 
     .then((result) => {
         //console.log(result);
-        app.listen(3000);
-        console.log("Listenning localhost 3000")
+        app.listen(PORT, () => {
+          console.log("Listenning localhost 3000");
+        });
+        
     })
     .catch(err => {
         console.log(err);
