@@ -1,4 +1,24 @@
+
+.topLeft img{
+	display: block;
+	margin-left: 5%;
+	/* margin-right: auto; */
+	
+}
+.topRight{
+	text-align: right;
+	margin-top: 2%;
+	margin-right: 5%;
+}
+.topRight a{
+	float: right;
+	margin-right:2%;
+}
 /* header css */
+.navbar{
+	background-color:#337488;
+}
+
 .navbar ul {
     margin:0 auto;
 	font-size: 1.4em;
@@ -6,7 +26,9 @@
 .navbar a{
 	color: black;
 }
-
+.navbar-dark .navbar-nav .nav-link {
+    color: white !important;
+}
 .navbar a:hover{
     color: #7d7d7d;
 	text-decoration: underline 1px;
@@ -16,7 +38,6 @@
 .dropdown:hover .dropdown-menu {
 	display: block;
  }
-
 .active{
 	color: #7d7d7d !important;
 }
@@ -34,8 +55,9 @@ height: 300px; /* only if you want fixed height */
 
 /* footer css */
 footer{
-	text-align: left;
-	margin-top:3%;
+	padding-top: 2%;
+	background-color:#337488;
+	color:white;
 }
 
 .copyright{
@@ -49,7 +71,7 @@ footer{
 }
 
 .footer a{
-	color: black;
+	color: white;
 }
 
 .title-row{
@@ -62,17 +84,23 @@ footer{
 	text-align: left;
 }
 
-img{
-	margin-bottom: 2%;
-}
 
 /* body css */
 .pageTitle{
-	background-color: #cccac9;  
-	margin-bottom: 2%;
+	position: relative;
+	text-align: left;
+	color:white;
+}
+.pageTitle img{
+	width:100%;
   }
 .pageInfor{
-	padding:10% 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color:rgba(0,0,0,0.7);
+	padding:2em;
   }
 .pageImg{
 	padding:7% 0;
