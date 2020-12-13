@@ -18,7 +18,7 @@ exports.postLogin = (req, res, next) => {
             if(!user){
                 // console.log("loginned");
                 req.flash('error', 'User not found');
-                return res.redirect('/');
+                return res.redirect('/login');
             }
             // else{
             //     console.log("No this user");
