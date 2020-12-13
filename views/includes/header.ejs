@@ -104,15 +104,25 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/contactus">Contact Info</a>
                             <a class="dropdown-item" href="https://www.facebook.com/profile.php?id=100001525701996&sk=info">Visit Us On Facebook</a>
+                            <% if(isAuthenicated){ %>
+                                <a class="dropdown-item" href="/comments">Comments</a>
+                            <% } %>
                         </div>
                     </li>
                 </ul>
             </div>
             <div>
-                <a href="./HTMLS/Login.html" class="btn btn-primary btn-lg btn-sm active" role="button"
-                    aria-pressed="true">Login</a>
-                <a href="./HTMLS/Signup.html" class="btn btn-primary btn-lg btn-sm active" role="button"
-                    aria-pressed="true">Signup</a>
+                <% if(!isAuthenicated){ %>
+                <a href="/login" class="btn btn-outline-success">Login</a>
+                <a href="/signup" class="btn btn-outline-primary ml-2">Signup</a>
+
+                <% } else { %>
+                <form action="/logout" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                    <a href="/profile" class="btn btn-outline-primary ml-2">Profile</a>
+                    <button class="btn btn-danger ml-2" type="submit">Logout</button>
+                </form>
+                <% } %>
             </div>
         </nav>
 
@@ -122,3 +132,5 @@
     <!-- slide show -->
 
     <!-- <main class=" container"> -->
+
+
