@@ -1,4 +1,30 @@
+body, html{
+	height:100%;
+	width:100%;
+	font-family: Arial !important;
+	overflow-x: hidden;
+
+}
+.topLeft img{
+	display: block;
+	margin-left: 5%;
+	/* margin-right: auto; */
+	
+}
+.topRight{
+	text-align: right;
+	margin-top: 2%;
+	margin-right: 5%;
+}
+.topRight a{
+	float: right;
+	margin-right:2%;
+}
 /* header css */
+.navbar{
+	background-color:#337488;
+}
+
 .navbar ul {
     margin:0 auto;
 	font-size: 1.4em;
@@ -6,7 +32,9 @@
 .navbar a{
 	color: black;
 }
-
+.navbar-dark .navbar-nav .nav-link {
+    color: white !important;
+}
 .navbar a:hover{
     color: #7d7d7d;
 	text-decoration: underline 1px;
@@ -16,7 +44,6 @@
 .dropdown:hover .dropdown-menu {
 	display: block;
  }
-
 .active{
 	color: #7d7d7d !important;
 }
@@ -28,19 +55,31 @@
 .fit-image{
 width: 100%;
 object-fit: cover;
-height: 300px; /* only if you want fixed height */
+/* height: 300px; only if you want fixed height */
 }
 
 
 /* footer css */
+.btp {
+	text-align: center;
+	font-size:1.5em ;
+	margin-top: 2%;
+}
+.btp a{
+	color:#7d7d7d !important;
+}
 footer{
-	text-align: left;
 	margin-top:3%;
+	padding-top: 2%;
+	background-color:#337488;
+	color:white;
 }
 
 .copyright{
 	text-align: center;
+	font-size: small;
 }
+
 
 .footer a:hover{
 	color: #7d7d7d;
@@ -49,7 +88,7 @@ footer{
 }
 
 .footer a{
-	color: black;
+	color: white;
 }
 
 .title-row{
@@ -62,20 +101,26 @@ footer{
 	text-align: left;
 }
 
-img{
-	margin-bottom: 2%;
-}
 
 /* body css */
 .pageTitle{
-	background-color: #cccac9;  
-	margin-bottom: 2%;
-  }
+	position: relative;
+	text-align: left;
+	color:white;
+}
 .pageInfor{
-	padding:10% 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color:rgba(0,0,0,0.7);
+	padding:2em;
   }
 .pageImg{
 	padding:7% 0;
+}
+.imgpadding{
+	padding-left: 10px
 }
 .pageTitle h2{
 	text-align: center;
@@ -83,15 +128,62 @@ img{
 .pageTitle p{
 	font-size: 20px;
 }
-.sectionLine{
-	border-top: 2px solid #999;
-	margin:2% 0;
+
+.container p{
+	font-size: 1em;
 }
-/* about us page css */
-.container img{
-	border-radius: 5%;
-}
-/* china trip css */
 .container h4{
 	text-align: center;
 }
+.row{
+	margin-bottom: 2%;
+}
+
+
+/* body css */
+.pageTitle{
+	position: relative;
+	text-align: left;
+	color:white;
+}
+.pageInfor{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color:rgba(0,0,0,0.7);
+	padding:2em;
+  }
+.pageImg{
+	padding:7% 0;
+}
+.imgpadding{
+	padding-left: 10px
+}
+.pageTitle h2{
+	text-align: center;
+}
+.pageTitle p{
+	font-size: 20px;
+}
+
+.container p{
+	font-size: 1em;
+}
+.container h4{
+	text-align: center;
+}
+.row{
+	margin-bottom: 2%;
+}
+@media screen and (min-width: 495px){
+	.pageTitle img{
+		width:100%;
+		height:410px;
+	  }
+	  .container{
+		margin-top:3%;
+		max-width:720px !important;
+	}
+}
+
