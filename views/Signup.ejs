@@ -1,0 +1,39 @@
+<%- include('./includes/header.ejs')%>
+<div class="container p-5">
+    <form class="signup-form" action="/signup" method="post">
+        <%- include('./includes/error-message.ejs') %>
+
+        <div class="row">
+            <div class="form-group col-sm">
+                <label for="email">Username</label>
+                <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" required>
+                <small id="usernameHelp" class="form-text text-muted">Please Enter Your Username</small>
+            </div>
+            <div class="form-group col-sm">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+                <small id="emailHelp" class="form-text text-muted">Please Enter Your Email</small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp" required>
+                <small id="passwordHelp" class="form-text text-muted">Please Enter Your Password</small>
+            </div>
+            <div class="form-group col-sm">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                    aria-describedby="confirmPasswordHelp" required>
+                <small id="confirmPasswordHelp" class="form-text text-muted">Please Enter the Confirm Password</small>
+            </div>
+        </div>
+      
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+<%- include('./includes/footer.ejs')%>

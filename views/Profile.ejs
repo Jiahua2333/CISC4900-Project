@@ -1,0 +1,112 @@
+<%- include('./includes/header.ejs')%>
+<div class="container p-5">
+    <h2>User Information</h2>
+    <div class="row">
+        <div class="col-sm">
+            <span>Username: <%= user.username %></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <span>First Name: <%= user.firstName %> </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <span>Last Name: <%= user.lastName %> </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <span>Email: <%= user.email %></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <a class="btn btn-primary btn-lg m-4" href="/profile/edit" role="button">Edit</a>
+        </div>
+    </div>
+
+    <% if(showEdit){ %>
+    <br>
+    <br>
+    <form class="signup-form" action="/profile" method="post">
+        <%- include('./includes/error-message.ejs') %>
+
+        <div class="row">
+            <div class="form-group col-sm">
+                <label for="email">Username</label>
+                <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp">
+                <small id="usernameHelp" class="form-text text-muted">Please Enter Your Username</small>
+            </div>
+            <div class="form-group col-sm">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" >
+                <small id="emailHelp" class="form-text text-muted">Please Enter Your Email</small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm">
+                <label for="firstName">FirstName</label>
+                <input type="firstName" class="form-control" id="firstName" name="firstName"
+                    aria-describedby="firstNamedHelp" >
+                <small id="firstNameHelp" class="form-text text-muted">Please Enter Your FirstName</small>
+            </div>
+            <div class="form-group col-sm">
+                <label for="lastName">LastName</label>
+                <input type="lastName" class="form-control" id="lastName" name="lastName"
+                    aria-describedby="lastNameHelp" >
+                <small id="lastNameHelp" class="form-text text-muted">Please Enter Your LastName</small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm">
+                <label for="address">Address</label>
+                <input type="address" class="form-control" id="address" name="address"
+                    aria-describedby="addressHelp" >
+                <small id="addressHelp" class="form-text text-muted">Please Enter Your Address</small>
+            </div>
+        </div>
+
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <div class="row">
+            <div class="col-sm">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a class="btn btn-danger" href="/profile" role="button">Cancel</a>
+            </div>
+        </div>
+    </form>
+    <% } %>
+
+    <br>
+    <br>
+    <h2>Your comments:</h2>
+    <% if(comments.length !== 0){%> 
+
+        <div class="be-comment-block">
+            <h3 class="comments-title">Comments (<%= comments.length %> )</h1>
+        </div>
+    
+        <%  for (let comment of comments){ %>
+    
+        <div class="be-comment-content">
+    
+            <span class="be-comment-name">
+                <%= user.username %>
+            </span>
+            <span class="be-comment-time">
+                <%= comment.updatedAt %>
+            </span>
+    
+            <p class="be-comment-text">
+                <%= comment.content %>
+            </p>
+        </div>
+    
+        <% } %>
+        <% } %> 
+</div>
+
+<%- include('./includes/footer.ejs')%>
