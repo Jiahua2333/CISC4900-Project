@@ -1,0 +1,41 @@
+<%- include('./includes/header.ejs')%>
+
+
+<div class="container">
+    <% if(comments.length !== 0){%> 
+
+    <div class="be-comment-block">
+        <h3 class="comments-title">Comments (<%= comments.length %> )</h1>
+    </div>
+
+    <%  for (let comment of comments){ %>
+
+    <div class="be-comment-content">
+
+        <span class="be-comment-name">
+            <%= comment.username %>
+        </span>
+        <span class="be-comment-time">
+            <%= comment.updatedAt %>
+        </span>
+
+        <p class="be-comment-text">
+            <%= comment.content %>
+        </p>
+    </div>
+
+    <% } %>
+    <% } %> 
+
+    <form action="/comments" method="post">
+        <div class="form-group">
+            <label for="comments">Your comments:</label>
+            <textarea class="form-control" id="comments" , name="comments" rows="5"></textarea>
+        </div>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+</div>
+
+
+<%- include('./includes/footer.ejs')%>

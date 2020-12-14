@@ -1,0 +1,11 @@
+<% var messages = getMessages() %>
+
+<% if(messages.error){ %>
+
+    <div class="alert alert-danger" role="alert">
+        <% messages.error.forEach(function(message){ %>
+            <div><%= message %></div>
+            <%})%>
+    </div>
+
+<% }%>
